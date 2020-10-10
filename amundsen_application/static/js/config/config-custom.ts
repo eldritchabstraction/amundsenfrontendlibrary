@@ -40,7 +40,7 @@ const configCustom: AppConfigCustom = {
       table: string
     ) => {
       // return `https://localhost:7474/browser/?schema=${schema}&cluster=${cluster}&db=${database}&table=${table}`;
-      return `http://localhost:7474/browser/?cmd=edit&arg=MATCH p=(tbl:Table {key:"${database}://${cluster}.${schema}/${table}")<-[r:DOWNSTREAM*]-(b) RETURN*UNION MATCH p=(tbl:Table {key:"${database}://${cluster}.${schema}/${table}"})-[r:DOWNSTREAM*]->(b) RETURN *`;
+      return `http://localhost:7474/browser/?cmd=edit&arg=MATCH p=(tbl:Table {key:"${database}://${cluster}.${schema}/${table}"})<-[r:DOWNSTREAM*]-(b) RETURN*UNION MATCH p=(tbl:Table {key:"${database}://${cluster}.${schema}/${table}"})-[r:DOWNSTREAM*]->(b) RETURN *`;
     },
   },
   upstreamDownstreamLink: {
