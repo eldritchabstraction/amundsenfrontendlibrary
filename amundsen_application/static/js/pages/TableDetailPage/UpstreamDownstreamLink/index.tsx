@@ -28,7 +28,7 @@ export function renderUpstreamDownstreamLink(
   let schema = parts[2].split(".")[1]
   let table = parts[3]
   const href = config.urlGenerator(database, cluster, schema, table);
-  let img_src = '/static/images/' + cluster + '.' + schema + '.' + table + '.gv.png'
+  let img_src = '/static/images/graph/' + cluster + '.' + schema + '.' + table + '.gv.png'
   return (
     <div>
       <a
@@ -39,7 +39,6 @@ export function renderUpstreamDownstreamLink(
       >
         {uri}
       </a>
-      <img src={img_src}/>
      </div>
   );
 }

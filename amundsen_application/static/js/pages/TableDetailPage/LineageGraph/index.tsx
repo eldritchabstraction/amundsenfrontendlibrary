@@ -8,22 +8,19 @@ import AppConfig from 'config/config';
 import { logClick } from 'ducks/utilMethods';
 import { TableMetadata } from 'interfaces/TableMetadata';
 
-export interface LineageLinkProps {
+export interface LineageGraphProps {
   tableData: TableMetadata;
 }
 
-const LineageLink: React.FC<LineageLinkProps> = ({
+const LineageGraph: React.FC<LineageGraphProps> = ({
   tableData,
-}: LineageLinkProps) => {
-  const config = AppConfig.tableLineage;
-  if (!config.isEnabled) return null;
-
+}: LineageGraphProps) => {
   const { database, cluster, schema, name } = tableData;
-  const href = config.urlGenerator(database, cluster, schema, name);
+  const href = 'http://localhost:5000/static/images/graph/' + cluster + '.' + schema + '.' + name + '.gv.png'
   if (!href) return null;
 
-  const label = 'Neo4J Query';
-
+  const label = 'Lineage Graph';
+  let iconPath = 'PATH_TO_ICON';
   return (
     <a
       className="header-link"
@@ -33,9 +30,9 @@ const LineageLink: React.FC<LineageLinkProps> = ({
       onClick={logClick}
       rel="noreferrer"
     >
-      <AvatarLabel label={label} src={config.iconPath} />
+      <AvatarLabel label={label} src={iconPath} />
     </a>
   );
 };
 
-export default LineageLink;
+export default LineageGraph;

@@ -49,6 +49,7 @@ import ExploreButton from './ExploreButton';
 import FrequentUsers from './FrequentUsers';
 import UpstreamDownstreamLink from './UpstreamDownstreamLink';
 import LineageLink from './LineageLink';
+import LineageGraph from './LineageGraph';
 import TableOwnerEditor from './TableOwnerEditor';
 import SourceLink from './SourceLink';
 import TableDashboardResourceList from './TableDashboardResourceList';
@@ -310,6 +311,7 @@ export class TableDetail extends React.Component<
             <div className="header-section header-links">
               <WriterLink tableWriter={data.table_writer} />
               <LineageLink tableData={data} />
+              <LineageGraph tableData={data} />
               <SourceLink tableSource={data.source} />
             </div>
             <div className="header-section header-buttons">
