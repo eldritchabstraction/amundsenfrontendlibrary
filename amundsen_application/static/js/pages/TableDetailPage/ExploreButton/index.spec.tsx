@@ -56,6 +56,8 @@ describe('ExploreButton', () => {
         resource_reports: [],
         watermarks: [],
         programmatic_descriptions: {},
+        upstream: [],
+        downstream: [],
         ...tableDataOverrides,
       },
     };

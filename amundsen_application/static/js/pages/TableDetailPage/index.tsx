@@ -47,6 +47,7 @@ import {
 import DataPreviewButton from './DataPreviewButton';
 import ExploreButton from './ExploreButton';
 import FrequentUsers from './FrequentUsers';
+import UpstreamDownstreamLink from './UpstreamDownstreamLink';
 import LineageLink from './LineageLink';
 import TableOwnerEditor from './TableOwnerEditor';
 import SourceLink from './SourceLink';
@@ -383,6 +384,18 @@ export class TableDetail extends React.Component<
                       {Constants.FREQ_USERS_TITLE}
                     </div>
                     <FrequentUsers readers={data.table_readers} />
+                  </section>
+                  <section className="metadata-section">
+                    <div className="section-title">
+                      {Constants.UPSTREAM_TITLE}
+                    </div>
+                    <UpstreamDownstreamLink uris={data.upstream} />
+                  </section>
+                  <section className="metadata-section">
+                    <div className="section-title">
+                      {Constants.DOWNSTREAM_TITLE}
+                    </div>
+                    <UpstreamDownstreamLink uris={data.downstream} />
                   </section>
                   {this.renderProgrammaticDesc(
                     data.programmatic_descriptions.right

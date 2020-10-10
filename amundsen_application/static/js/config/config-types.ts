@@ -22,6 +22,7 @@ export interface AppConfig {
   navLinks: Array<LinkConfig>;
   resourceConfig: ResourceConfig;
   tableLineage: TableLineageConfig;
+  upstreamDownstreamLink: UpstreamDownstreamLinkConfig;
   tableProfile: TableProfileConfig;
 }
 
@@ -41,6 +42,7 @@ export interface AppConfigCustom {
   navLinks?: Array<LinkConfig>;
   resourceConfig?: ResourceConfig;
   tableLineage?: TableLineageConfig;
+  upstreamDownstreamLink?: UpstreamDownstreamLinkConfig;
   tableProfile?: TableProfileConfig;
 }
 
@@ -236,6 +238,20 @@ interface TableProfileConfig {
     table: string,
     partitionKey?: string,
     partitionValue?: string
+  ) => string;
+}
+
+/**
+ * UpstreamDownstreamLinkConfig - upstream downstream link
+ *
+ * exploreUrlGenerator - Generates a URL to a third party SQL explorable website.
+ */
+interface UpstreamDownstreamLinkConfig {
+  urlGenerator: (
+    database: string,
+    cluster: string,
+    schema: string,
+    table: string
   ) => string;
 }
 

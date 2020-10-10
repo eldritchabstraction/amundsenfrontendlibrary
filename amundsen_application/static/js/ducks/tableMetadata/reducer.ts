@@ -58,6 +58,8 @@ export const initialTableDataState: TableMetadata = {
   resource_reports: [],
   watermarks: [],
   programmatic_descriptions: {},
+  upstream: [],
+  downstream: []
 };
 
 export const initialState: TableMetadataReducerState = {

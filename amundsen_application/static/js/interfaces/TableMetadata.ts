@@ -104,6 +104,8 @@ export interface TableMetadata {
   resource_reports: ResourceReport[];
   watermarks: Watermark[];
   programmatic_descriptions: TableProgrammaticDescriptions;
+  downstream: string[];
+  upstream: string[];
 }
 
 export interface UpdateOwnerPayload {

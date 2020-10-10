@@ -260,6 +260,8 @@ describe('generateExploreUrl', () => {
     resource_reports: [],
     watermarks: [],
     programmatic_descriptions: {},
+    upstream: [],
+    downstream: []
   };
 
   it('calls `exploreUrlGenerator` with table metadata', () => {

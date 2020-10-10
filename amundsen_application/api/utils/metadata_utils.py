@@ -12,6 +12,8 @@ from amundsen_application.models.user import load_user, dump_user
 from amundsen_application.config import MatchRuleObject
 from flask import current_app as app
 import re
+import logging
+LOGGER = logging.getLogger(__name__)
 
 
 def marshall_table_partial(table_dict: Dict) -> Dict:
@@ -71,10 +73,16 @@ def marshall_table_full(table_dict: Dict) -> Dict:
     :return: Table Dict with sanitized fields
     """
 
+    LOGGER.info(f"starting marshalling {table_dict}")
+
     schema = TableSchema(strict=True)
     # TODO: consider migrating to validate() instead of roundtripping
     table: Table = schema.load(table_dict).data
+
     results: Dict[str, Any] = schema.dump(table).data
+
+    results['downstream'] = table_dict['downstream']
+    results['upstream'] = table_dict['upstream']
 
     # Check if schema is uneditable
     is_editable_schema = results['schema'] not in app.config['UNEDITABLE_SCHEMAS']
@@ -115,6 +123,7 @@ def marshall_table_full(table_dict: Dict) -> Dict:
     prog_descriptions = results['programmatic_descriptions']
     results['programmatic_descriptions'] = _convert_prog_descriptions(prog_descriptions)
 
+    LOGGER.info(f"finished marshalling {results}")
     return results
 
 

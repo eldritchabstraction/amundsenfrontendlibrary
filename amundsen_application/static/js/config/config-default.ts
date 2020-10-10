@@ -198,6 +198,16 @@ const configDefault: AppConfig = {
       return `https://DEFAULT_LINEAGE_URL?schema=${schema}&cluster=${cluster}&db=${database}&table=${table}`;
     },
   },
+  upstreamDownstreamLink: {
+    urlGenerator: (
+      database: string,
+      cluster: string,
+      schema: string,
+      table: string
+    ) => {
+      return `http://DEFAULT_LINEAGE_URL/table_detail/${cluster}/${database}/${schema}/${table}`;
+    },
+  },
   tableProfile: {
     isBeta: false,
     isExploreEnabled: false,

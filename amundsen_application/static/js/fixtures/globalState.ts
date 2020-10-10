@@ -174,6 +174,8 @@ const globalState: GlobalState = {
       resource_reports: [],
       watermarks: [],
       programmatic_descriptions: {},
+      upstream: [],
+      downstream: []
     },
     tableOwners: {
       isLoading: true,

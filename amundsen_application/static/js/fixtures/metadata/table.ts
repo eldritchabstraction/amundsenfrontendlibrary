@@ -166,6 +166,8 @@ export const tableMetadata: TableMetadata = {
       watermark_type: 'low_watermark',
     },
   ],
+  upstream : ['hive://gold.base/users'],
+  downstream : ['hive://gold.base/users']
 };
 
 export const relatedDashboards: DashboardResource[] = [
